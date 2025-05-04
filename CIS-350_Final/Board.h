@@ -3,23 +3,27 @@
 #include <fstream>
 #include <random>
 #include <string>
-
+#include <vector> // Added
 using namespace std;
 
 class Board
 {
 public:
-	static const int size = 4;
-	char board[size][size];//First index is the row number then the column number
+	static const int size = 5;
+	static const int boardSize = size + size;
+	char board[boardSize][boardSize];
 	vector<pair<int, int>> blockCords;
 
 	bool populateBoard();
-	int checkRow(int rowNum); //takes a row to check and returns the number of empty spaces in the row
-	int checkColumn(int colNum); //takes a column to check and returns the number of empty spaces in the column
+	int checkRow(int rowNum);
+	int checkColumn(int colNum);
 	bool addConnection(string wordOne, string wordTwo, int connectionPointOne, int connectionPointTwo);
-	bool fillBoard(string name); //sends the name/path of the file with the database to fill the board
-	bool addBlocks(int n); //adds blocks randomly. meant to do before filling the board for a challange of the system.
-	void padWithBlocks(); //adds blocks after the board has been filled. This is the easy way out to lower complications
+	bool canPlaceHorizontally(int row, int col, string word);
+	void placeHorizontally(int row, int col, string word);
+	bool canPlaceVertically(int row, int col, string word);
+	void placeVertically(int row, int col, string word);
+	bool fillBoard(string name);
+	bool addBlocks(int n);
+	void padWithBlocks();
 	void display();
 };
-
