@@ -273,8 +273,8 @@ bool Board::fillBoard()
 
 void Board::padWithBlocks()
 {
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
+	for (int i = 0; i < boardSize; i++) {
+		for (int j = 0; j < boardSize; j++) {
 			if (this->board[i][j] == '#') {
 				this->board[i][j] = '!';
 			}
@@ -284,10 +284,11 @@ void Board::padWithBlocks()
 
 void Board::display()
 {
-	for (int i = 0; i < size; i++) {
-		for (int j = 0; j < size; j++) {
+	for (int i = 0; i < boardSize; i++) {
+		for (int j = 0; j < boardSize; j++) {
 			cout << board[i][j] << " ";
 		}
 		cout << endl;
 	}
 }
+

@@ -3,7 +3,7 @@
 #include <fstream>
 #include <random>
 #include <string>
-
+#include <vector> // Added
 using namespace std;
 
 class Board
@@ -46,4 +46,3 @@ public:
 	void padWithBlocks(); //adds blocks after the board has been filled. This is the easy way out to lower complications
 	void display();
 };
-
